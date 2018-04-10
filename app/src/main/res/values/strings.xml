@@ -29,7 +29,7 @@
 
     <string name="share_with">Share with...</string>
 
-    <string name="share_text">Hello,\nThis tic tac toe game was designed and developed by Smart Joseph, an ALC 2.0 beginner from Uyo, Nigeria. \n\nCheck it out here:\nhttps://play.google.com/store/apps/details?id=com.smartjoseph.smarttictactoe</string>
+    <string name="share_text">Hello,\nThis tic tac toe game was designed and developed by Smart Joseph, an ALC 2.0 beginner from Uyo, Nigeria. \n\nCheck it out here:\nhttps://github.com/SmartJoseph/SmartTicTacToe</string>
 
     <string name="help_information"><b>HOW TO PLAY</b>\nClick on the grid boxes to play.\nThe first player uses the X symbol, while the opponent uses the O symbol.\n\nWin - the user wins by  placing three or more Xs or Os depending on the square grid in a horizontal, vertical or diagonal row.\nDraw - If none of the players has three in a row.\n\n<b>GAME BUTTONS</b>\nBack - Clicking this button ends the game and takes you back to the menu\n\nNew Game - Clicking this button allows you to start a new gaming session\n\nHelp - Clicking this button opens this help menu you are currently reading\n\nOptions - This button takes you to a view where you can set the game sound to on/off</string>
     <string name="share_btn">Share</string>
