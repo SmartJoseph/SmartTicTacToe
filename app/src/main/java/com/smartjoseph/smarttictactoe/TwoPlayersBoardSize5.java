@@ -8246,10 +8246,11 @@ public class TwoPlayersBoardSize5 extends AppCompatActivity {
             public void onClick(View v) {
 
                 replayGame();
-//                usersScore = 0;
-//                displayUsersScore(usersScore);
-//                computerScore = 0;
-//                displayComputerScore(computerScore);
+               playerOneScores = 0;
+                displayPlayerOneScore(playerOneScores);
+
+                playerTwoScores = 0;
+                displayPlayerTwoScore(playerTwoScores);
 
             }
         });
