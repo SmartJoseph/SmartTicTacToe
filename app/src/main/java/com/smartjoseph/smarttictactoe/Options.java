@@ -49,8 +49,8 @@ public class Options extends AppCompatActivity {
                 WindowManager.LayoutParams lp = dialogWindow.getAttributes();
                 dialogWindow.setGravity(Gravity.CENTER);
 
-                lp.width = 300;
-                lp.height = 400;
+                lp.width = 500;
+                lp.height = 600;
 
                 dialogWindow.setAttributes(lp);
 
@@ -98,8 +98,8 @@ public class Options extends AppCompatActivity {
                 WindowManager.LayoutParams lp = dialogWindow.getAttributes();
                 dialogWindow.setGravity(Gravity.CENTER);
 
-                lp.width = 300;
-                lp.height = 400;
+                lp.width = 500;
+                lp.height = 600;
 
                 dialogWindow.setAttributes(lp);
 
