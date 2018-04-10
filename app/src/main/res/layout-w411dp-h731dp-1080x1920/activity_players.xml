@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgd"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context="com.smartjoseph.smarttictactoe.PlayersForSinglePlayer">
+    tools:context="com.smartjoseph.smarttictactoe.Players">
 
     <ImageView
         android:id="@+id/logo"
@@ -18,7 +18,7 @@
 
     <RelativeLayout
         android:layout_width="500dp"
-        android:layout_height="350dp"
+        android:layout_height="410dp"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -75,7 +75,7 @@
                 android:id="@+id/playerOneNameEditTxt"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_marginEnd="30dp"
                 android:background="@android:color/white"
                 android:ems="10"
                 android:fontFamily="casual"
@@ -99,7 +99,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
                 android:fontFamily="casual"
                 android:text="@string/opponent_name"
                 android:textAlignment="center"
@@ -114,14 +114,14 @@
                 android:src="@drawable/playertwo_symbol" />
 
 
-            <TextView
-                android:id="@+id/smartBot"
+            <EditText
+                android:id="@+id/opponentNameEditTxt"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/small_margin"
                 android:background="@android:color/white"
+                android:ems="10"
                 android:fontFamily="casual"
-                android:text="@string/smart_bot"
+                android:inputType="textPersonName"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>

@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgd"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:context="com.smartjoseph.smarttictactoe.SinglePlayer">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+
+    <RelativeLayout
+        android:id="@+id/scoreBoard"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:alpha="0.8"
+        android:background="@android:color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/small_margin">
+
+                <TextView
+                    android:id="@+id/playerOneName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/singlyePlayersname"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/usersTurn"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/playerone_symbol" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/yourScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:text="0"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="30sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/computerScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:text="0"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/small_margin">
+
+                <TextView
+                    android:id="@+id/opponentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/computerOpponent"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/computersTurn"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/GameBoard"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@id/scoreBoard"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:scaleType="fitXY"
+            android:src="@drawable/wood_texture" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/div" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridOne"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridTwo"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridThree"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridFour"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridFive"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridSix"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:id="@+id/gridSeven"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridEight"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridNine"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridOnePlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible"
+                    />
+
+                <ImageView
+                    android:id="@+id/gridTwoPlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible"
+                    />
+
+                <ImageView
+                    android:id="@+id/gridThreePlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridFourPlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridFivePlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridSixPlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:id="@+id/gridSevenPlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridEightPlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridNinePlayerOneIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridOnePlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible"
+                    />
+
+                <ImageView
+                    android:id="@+id/gridTwoPlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridThreePlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridFourPlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridFivePlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridSixPlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridSevenPlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridEightPlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridNinePlayerOneWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/playerone_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridOnePlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible"/>
+
+                <ImageView
+                    android:id="@+id/gridTwoPlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible"
+                     />
+
+                <ImageView
+                    android:id="@+id/gridThreePlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridFourPlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridFivePlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridSixPlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:id="@+id/gridSevenPlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridEightPlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridNinePlayerTwoIcon"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridOnePlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridTwoPlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridThreePlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gridFourPlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridFivePlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridSixPlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:id="@+id/gridSevenPlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridEightPlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/gridNinePlayerTwoWin"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/playertwo_winning_symbol"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GameBoard"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:alpha="0.8"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/small_margin"
+            android:paddingStart="@dimen/small_margin">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:scaleX="-1"
+                app:srcCompat="@drawable/ic_play" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/back"
+                android:textColor="@color/colorOrange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/small_margin"
+            android:paddingStart="@dimen/small_margin">
+
+            <ImageButton
+                android:id="@+id/newGame_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_play" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="New Game"
+                android:textColor="@color/colorOrange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/small_margin"
+            android:paddingStart="@dimen/small_margin">
+
+            <ImageButton
+                android:id="@+id/about_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_help" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/help_btn"
+                android:textColor="@color/colorOrange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/small_margin"
+            android:paddingStart="@dimen/small_margin">
+
+            <ImageButton
+                android:id="@+id/options_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_options" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/Options"
+                android:textColor="@color/colorOrange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
