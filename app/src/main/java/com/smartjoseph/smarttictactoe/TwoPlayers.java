@@ -2956,8 +2956,7 @@ public class TwoPlayers extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TwoPlayers.this, Menu.class);
-                startActivity(i);
+                finish();
             }
         });
 
